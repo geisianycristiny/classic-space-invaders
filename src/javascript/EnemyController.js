@@ -50,4 +50,9 @@ constructor(canvas, enemyBulletController, playerBulletController) {
  
         }
     }
-}      
+    resetMoveDownTimer() {
+        if(this.moveDownTimer <= 0) {
+            this.moveDownTimer = this.moveDownTimerDefault;
+        }
+    }
+}     
