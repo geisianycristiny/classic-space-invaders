@@ -40,4 +40,14 @@ constructor(canvas, enemyBulletController, playerBulletController) {
         });
         this.enemyRows = this.enemyRows.filter((enemyRow) => enemyRow.lenght > 0);
     }
-}
+    fireBullet(){
+        this.fireBulletTimer--;
+        if(this.fireBulletTimer <= 0) {
+            const allEnemies = this.enemyRow.flat();      
+            const enemyIndex = math.floor(Math.random() * allEnemies.lenght);
+            const enemy = allEnemies[enemyIndex];
+            this.enemyBulletController.shoot(enemy.x + enemy.width / 2, enemy. y, -3);
+ 
+        }
+    }
+}      
