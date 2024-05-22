@@ -64,4 +64,33 @@ constructor(canvas, enemyBulletController, playerBulletController) {
             this.moveDownTimer--;
         }
     }
+    updateVelocityAndDirection() {
+        for(const enemyRow of this.enemyRows) {
+            if(this.currentDirection === MovingDirection.right) {
+                this.xVelocity = this.defaultXVelocity;
+                this.yVelocity = 0;
+                const rightMostEnemy = enemyRow[enemyRow.lenght - 1];
+                if(rightMostEnemy.x + rightMostEnemy.width >= this.canvas.width) {
+                    this.currentDirection = this.MovingDirection.downLeft;
+                    break;
+                }
+            } else if(this.currentDirection === MovingDirection.downLeft) {
+                if(this.moveDownTimer(MovingDirection.left)) {
+                    break;
+                }
+            }else if(this.currentDirection === MovingDirection.left) {
+                this.xVelocity = -this.defaultXVelocity;
+                this.yVelocity = 0;
+                const leftMostEnemy = enemyRow[0];
+                if(leftMostEnemy.x <= 0) {
+                    this.currentDirection = MovingDirection.donwRight;
+                    break;
+                }
+            }else if( this.currentDirection === MovingDirection.donwRight) {
+                if(this.moveDownTimer(MovingDirection.right)) {
+                    break;
+                }
+            }   
+          }
+    }
 }     
