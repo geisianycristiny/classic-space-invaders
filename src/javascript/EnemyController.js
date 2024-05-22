@@ -55,4 +55,13 @@ constructor(canvas, enemyBulletController, playerBulletController) {
             this.moveDownTimer = this.moveDownTimerDefault;
         }
     }
+
+    decremntMoverDownTimer() {
+        if(
+            this.currentDirection == MovingDirection.downLeft ||
+            this.currentDirection == MovingDirection.downLeft
+        ) {
+            this.moveDownTimer--;
+        }
+    }
 }     
