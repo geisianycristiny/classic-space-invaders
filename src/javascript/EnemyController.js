@@ -121,5 +121,8 @@ export default class EnemyController {
             });
         }
     )}
+    collideWith(sprite) {
+        return this.enemyRows.flat().some((enemy) => enemy.collideWith(sprite));
+    }
    
 } 
