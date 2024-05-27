@@ -10,22 +10,22 @@ export default class EnemyController {
     ];
     enemyRows = [];
 
-currentDirection  = MovingDirection.right;
-xVelocity = 0;
-yVelocity = 0;
-defaultXVelocity = 1;
-defaultYVelocity = 1;
-moveDownTimerDefault = 30;
-moveDownTimer = this.moveDownTimerDefault;
-fireBulletTimerDefault = 100;
-fireBulletTimer = this.fireBulletTimerDefault;
+    currentDirection  = MovingDirection.right;
+    xVelocity = 0;
+    yVelocity = 0;
+    defaultXVelocity = 1;
+    defaultYVelocity = 1;
+    moveDownTimerDefault = 30;
+    moveDownTimer = this.moveDownTimerDefault;
+    fireBulletTimerDefault = 100;
+    fireBulletTimer = this.fireBulletTimerDefault;
 
-constructor(canvas, enemyBulletController, playerBulletController) {
-    this.canvas = canvas;
-    this.enemyBulletController = enemyBulletController;
-    this.playerBulletController = playerBulletController;
-    this.enemyDeathSound = new Audio("src/assets/sounds/enemy-death.wav");
-    this.enemyDeathSound.volume = 0.1;
+    constructor(canvas, enemyBulletController, playerBulletController) {
+        this.canvas = canvas;
+        this.enemyBulletController = enemyBulletController;
+        this.playerBulletController = playerBulletController;
+        this.enemyDeathSound = new Audio("src/assets/sounds/enemy-death.wav");
+        this.enemyDeathSound.volume = 0.1;
     } 
 
     collisionDetection(){
@@ -93,4 +93,33 @@ constructor(canvas, enemyBulletController, playerBulletController) {
             }   
           }
     }
-}     
+
+    moveDown(newDirection) {
+        this.xVelocity = 0;
+        this.yVelocity = this.defaultYVelocity;
+        if(this.moveDownTimer <= 0) {
+            return true;
+        } else{
+            return false;
+        }
+    }
+    drawEnemies(ctx) {
+    this.enemyRows.flatEach((enemy) => {
+    enemy.move(this.xVelocity, this.yVelocity);
+    enemy.draw(ctx);
+    })
+    }
+    happy = () => {};
+
+    createEnemies() {
+        this.enemyMap.forEach((row, rowIndex) => {
+            this.enemyRows[rowIndex] = [];
+            row.forEach((enemyNumber, enemyIndex ) => {
+                if(enemyNumber > 0) {
+                    this.enemyRows[rowIndex].push(new Enemy(enemyIndex * 50, rowIndex * 35, enemyNumber))
+                }
+            });
+        }
+    )}
+   
+} 
