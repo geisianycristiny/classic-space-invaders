@@ -22,6 +22,13 @@ let didWin = false;
 function game() {
     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 }
+function displaGameOver() {
+    let text = didWin ? "voce ganhou!" : "Game Over";
+    let textOffset = didWin ? 5 : 3.6;
+    ctx.fillstyle = "white";
+    ctx.font = "35px 'press start 2P'";
+    ctx.fillText(text, canvas.width / textOffset, canvas.height / 2);
+}
 
 function checkGameOver() {
     if(isGameOver) {
