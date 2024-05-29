@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
+<head> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="src/assets/images/player.png" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>classic space invaders</title>
+    <title>Classic Space Invaders | Allan Evangelista</title>
     <style>
         canvas{
-            box-shadow: rgb(0, 0, 0) 20px 10px 50px;
+            box-shadow: rgb(7, 164, 236) 20px 10px 50px;
         }
         h1{
             margin: 0px;
             margin-bottom: 10px;
-            font-size: 2.9em;
-            font-family: "press Start 2P";
-        }
-        body {
+            font-size: 2.9en;
+            font-family: "Press Start 2P";    
+            
+        } 
+        body{
             display: flex;
             align-items: center;
             flex-direction: column;
@@ -23,17 +28,18 @@
             height: 100vh;
             background: linear-gradient(
                 0deg,
-                rgba(12, 12, 12, 0.804) 0%,
-                rgb(30, 15, 82)100%
-                )
-            ;
-                }
+                rgb(8, 22, 223) 0%,
+                rgb(7, 22, 230)100%
+
+            );
+
+        }
     </style>
 </head>
 <body>
-    <h1>space invaders<h1>
-   <canvas id="game"></canvas>
-<script type="module" src="src/javascript/index.js"></script>
-</script>
+    <h1>Space Invaders</h1>
+    <canvas id="game"></canvas>
+   <script type="module" src "src/javascript/index.js"></script>
+
 </body>
 </html>
