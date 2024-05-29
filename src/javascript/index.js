@@ -21,6 +21,14 @@ let didWin = false;
 
 function game() {
     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+    displaGameOver();
+
+    if(isGameOver) {
+        enemyController.draw(ctx);
+        player.draw(ctx);
+        enemyBulletController.draw(ctx);
+        playerBulletController.draw(ctx);
+    }
 }
 function displaGameOver() {
     let text = didWin ? "voce ganhou!" : "Game Over";
