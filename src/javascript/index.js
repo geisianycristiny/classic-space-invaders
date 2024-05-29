@@ -55,3 +55,5 @@ function checkGameOver() {
         isGameOver = true;
     }
 }
+
+setInterval(game, 1000 / 60);
